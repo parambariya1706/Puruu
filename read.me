@@ -1,0 +1,31 @@
+# Birthday Surprise: Setup Guide
+ 
+## 1. Personalize
+- script.js: set PARTNER_NAME at the top (replaces every [PARTNER NAME]).
+- index.html: replace every [BRACKETED] text: captions, timeline dates/milestones, letter paragraphs, your name, birthday date.
+## 2. Add photos and music
+Put files in `assets/`:
+- photo1.jpg ... photo6.jpg (square-ish, under 500 KB each; add more by copying a `<figure class="polaroid">` block)
+- birthday-song.mp3 (exact filename)
+Missing photos show a heart placeholder, so the site never looks broken.
+## 3. Run in VS Code
+1. Open the `birthday-surprise` folder (File > Open Folder).
+2. Install the "Live Server" extension.
+3. Right-click index.html > "Open with Live Server".
+(Or just double-click index.html. Audio works either way.)
+## 4. Publish
+**Netlify (easiest):** go to app.netlify.com/drop, drag the whole folder in, copy the link.
+**GitHub Pages:** create a repo, upload all files (keep `assets/`), then Settings > Pages > Deploy from branch > main / root. Your link appears in a minute.
+ 
+## 5. Testing checklist
+- [ ] "Open Your Surprise" scrolls to Memories
+- [ ] Photos show (or heart placeholders if missing)
+- [ ] "Make a Wish" blows out candles, shows the wish, fires confetti
+- [ ] Play starts music; Pause stops it; status text updates
+- [ ] Timeline and sections fade in on scroll
+- [ ] Letter opens, confetti fires, button changes to Close; closes and reopens
+- [ ] "Replay" resets cake, letter, music and scrolls to top
+- [ ] Looks right on phone width (use browser dev tools)
+- [ ] No errors in the browser console (F12)
+- [ ] With OS "reduce motion" on, animations are off and all content is visible
+ 

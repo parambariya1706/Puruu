@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A little world for you ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="cf" aria-hidden="true"></canvas>
+<div id="fx" aria-hidden="true"></div>
+<button id="back" class="icon" aria-label="Go back" hidden>←</button>
+
+<main>
+<!-- PAGE 1: mystery (no birthday greeting here on purpose) -->
+<section class="screen s1 active" data-emoji="❤ 🎈 ✨ 💗 🎈">
+  <h1 class="script">Someone has created a little world just for you...</h1>
+  <p class="lead">There's something waiting for you, my love. ♡</p>
+  <button class="btn pulse" data-next>Enter My Little World ✨</button>
+</section>
+
+<!-- PAGE 2: reveal. Name is set in script.js (CONFIG.name) -->
+<section class="screen s2" data-emoji="❤ ✨ 💖 🎉">
+  <div id="count" class="count" aria-live="assertive">
+    <p class="script big">Get ready...</p>
+    <div id="num" class="num"></div>
+  </div>
+  <div id="reveal" class="reveal" hidden>
+  <h1 class="title">HAPPY BIRTHDAY,<br>MY LOVE! ❤️</h1>
+  <p class="script name"></p>
+  <p class="lead">Today is all about the beautiful soul who makes my world brighter. You deserve all the happiness, love, and magic this world has to offer.</p>
+  <button class="btn" data-next>Let's Relive Our Memories 📸</button>
+  </div>
+</section>
+
+<!-- PAGE 3: photos are listed in script.js (CONFIG.photos) -->
+<section class="screen s3" data-emoji="❤ ✨ 💗">
+  <h2 class="script">Our Beautiful Memories</h2>
+  <div id="gallery" class="gallery"></div>
+  <button class="btn" data-next>Now, Let's Celebrate You 🎂</button>
+</section>
+
+<section class="screen s4" data-emoji="✨ 💗 🎈 ❤">
+  <p class="script big">Close your eyes, make a wish, and get ready...</p>
+  <div class="cake" aria-hidden="true">
+    <div class="candles"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <div class="tier t1"></div><div class="tier t2"></div><div class="plate"></div>
+  </div>
+  <p id="wish" class="script wish" aria-live="polite">May all your beautiful wishes come true! ❤️</p>
+  <!-- Your video: save it as assets/our-video.mp4. It plays after the candles are blown out. -->
+  <div id="vidWrap" class="vidwrap" hidden>
+    <video id="vid" src="assets/our-video.mp4" controls playsinline preload="none"></video>
+    <p id="vidMsg" aria-live="polite"></p>
+  </div>
+  <button id="blow" class="btn">Blow Out the Candles 💨</button>
+</section>
+
+<section class="screen s5" data-emoji="❤ 💗 ♪ ✨">
+  <div class="player">
+    <div class="vinyl" aria-hidden="true"></div>
+    <h2 id="songTitle"></h2>
+    <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <button id="play" class="btn" aria-pressed="false">▶ Play</button>
+    <p id="status" aria-live="polite">Press play when you're ready.</p>
+    <audio id="song" src="assets/our-song.mp4" preload="none" loop></audio>
+  </div>
+  <p class="script big">Some feelings are easier to express through emotions... This audio is for you. ❤️</p>
+  <button class="btn" data-next>There's Surprise for You 🎁</button>
+</section>
+
+<section class="screen s6" data-emoji="💗 ✨ 💋">
+  <div class="gift" aria-hidden="true"><div class="lid"></div><div class="box"></div></div>
+  <button id="openGift" class="btn pulse">Open Your Gift 💝</button>
+  <p id="kmsg" class="script big" hidden>Surprise, my love! Sending you a million kisses, endless hugs, and all the love in my heart! 😘💋❤️</p>
+  <button id="more" class="btn" hidden>Send Me More Kisses 😘</button>
+  <button id="giftNext" class="btn" data-next hidden>One Last Surprise... 💌</button>
+</section>
+
+<!-- PAGE 7: edit the letter text freely -->
+<section class="screen s7" data-emoji="🌸 🌹 💗 ✨ 🌸">
+  <p class="script big">One final thing, written just for you...</p>
+  <div class="env" aria-hidden="true"><div class="flap"></div><div class="seal">♥</div></div>
+  <button id="openLetter" class="btn">Open Your Love Letter 💌</button>
+  <article id="letter" class="letter" hidden>
+    <p class="script">My Dearest Love, ❤️</p>
+    <p>Happy Birthday to the person who makes my ordinary days feel extraordinary.</p>
+    <p>I wish I could put into words how much happiness you bring into my life. Your smile makes my difficult days easier, your laughter makes my world brighter, and the little moments we share become memories I want to keep forever.</p>
+    <p>On your special day, I wish you endless happiness, good health, beautiful opportunities, and the courage to follow every dream in your heart.</p>
+    <p>I may not always find the perfect words to express my feelings, but I hope you always feel how deeply you are loved and appreciated.</p>
+    <p>Thank you for being yourself. Thank you for the memories we have made and all the beautiful ones still waiting for us.</p>
+    <p>If I could make one wish today, it would be to see you smile, today and every day that follows.</p>
+    <p>Happy Birthday, my favorite person.</p>
+    <p class="script">With all my love, a million kisses, and the biggg hugs,<br>Forever yours.. ❤️💋</p>
+  </article>
+  <p id="closing" class="script big" hidden>You are my favorite person, my happiest memory, and one of the most beautiful parts of my life. ❤️</p>
+  <button id="toSecret" class="btn" data-next hidden>One More Secret Clue... 🤫</button>
+</section>
+
+<!-- PAGE 8: secret sticky notes. Edit the notes in script.js (CONFIG.notes) -->
+<section class="screen s8" data-emoji="💗 ✨ 🌸">
+  <p class="script big">One last clue I hope you being Happy....</p>
+  <button id="secretBtn" class="btn pulse">Tap for My Secret Notes 🤫</button>
+  <div id="notes" class="notes" aria-live="polite"></div>
+  <button id="replay" class="btn" hidden>Replay Our Little Love Story ♡</button>
+</section>
+</main>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button id="lbClose" class="icon" aria-label="Close photo">✕</button>
+  <button id="lbPrev" class="icon" aria-label="Previous photo">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap" class="script"></figcaption></figure>
+  <button id="lbNext" class="icon" aria-label="Next photo">›</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
